@@ -31,9 +31,9 @@ SELECT * FROM orders WHERE status = 'new' OR status = 'cancelled'
 SELECT id,sum FROM orders WHERE products_count > 3
 ```
 ## Лабораторная работа №2 [22.02.2025]
-### Таблица
-![](/LabW2/161/0_table.png)
 ### Задание №161
+#### Таблица
+![](/LabW2/161/0_table.png)
 1) Выберите из таблицы orders 3 самых дешевых заказа за всё время.
 Данные нужно отсортировать в порядке убывания цены.
 Отмененные заказы не учитывайте.
@@ -49,6 +49,8 @@ select * from orders where status in('new','in_progress','delivery') order by su
 select * from orders where status in('new','in_progress','delivery') order by sum desc limit 2;
 ```
 ### Задание №166
+#### Таблица
+![](/LabW2/166/0_table.png)
 3) Добавьте в таблицу orders данные о новом заказе стоимостью 8000 рублей. В заказе 4 товара (products).
 ![](/LabW2/3.png)
 ```
@@ -56,12 +58,16 @@ select * from orders where status in('new','in_progress','delivery') order by su
 ```
 #### Результат:
 ### Задание №167
+#### Таблица
+![](/LabW2/167/0_table.png)
 4) Добавьте в таблицу products новый товар — «VR-очки», стоимостью 70000 рублей в количестве (count) 2 штук.
 ![](/LabW2/4.png)
 ```
 
 ```
 ### Задание №172
+#### Таблица
+![](/LabW2/172/0_table.png)
 5) В таблицу products внесли данные с ошибкой, вместо "PS5" в наименовании написали IMAC. Исправьте ошибку.
 ![](/LabW2/5.png)
 ```
