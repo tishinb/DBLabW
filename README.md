@@ -1,6 +1,6 @@
 ## Лабораторная работа №1 [15.02.2025]
 ### Таблица
-![](/LabW1/0.png)
+![](/LabW1/0_table.png)
 ### Задание №1
 Выберите из таблицы orders все заказы
 
@@ -97,8 +97,11 @@ insert into products (id, name, count, price) value (7, 'VR-очки', 2, 70000)
 
 5) В таблицу products внесли данные с ошибкой, вместо "PS5" в наименовании написали IMAC. Исправьте ошибку.
 
-![](/LabW2/5.png)
+![](/LabW2/172/1.png)
 
 ```
-
+update products set name='PS5' where id=7;
 ```
+#### Результат:
+
+![](/LabW2/172/1_result.png)
