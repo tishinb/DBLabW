@@ -28,3 +28,4 @@ SELECT * FROM orders WHERE status = 'new' OR status = 'cancelled'
 ```
 SELECT id,sum FROM orders WHERE products_count > 3
 ```
+## Лабораторная работа №2
