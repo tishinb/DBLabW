@@ -81,11 +81,15 @@ insert into orders (id, products, sum) value (6, 4, 8000);
 
 4) Добавьте в таблицу products новый товар — «VR-очки», стоимостью 70000 рублей в количестве (count) 2 штук.
    
-![](/LabW2/4.png)
+![](/LabW2/167/1.png)
 
 ```
-
+insert into products (id, name, count, price) value (7, 'VR-очки', 2, 70000);
 ```
+#### Результат:
+
+![](/LabW2/167/1_result.png)
+
 ### Задание №172
 #### Таблица
 
