@@ -32,21 +32,21 @@ SELECT id,sum FROM orders WHERE products_count > 3
 ```
 ## Лабораторная работа №2 [22.02.2025]
 ### Таблица
-![](/LabW2/0.png)
+![](/LabW2/161/0_table.png)
 ### Задание №161
 1) Выберите из таблицы orders 3 самых дешевых заказа за всё время.
 Данные нужно отсортировать в порядке убывания цены.
 Отмененные заказы не учитывайте.
-![](/LabW2/1.png)
+![](/LabW2/161/1.png)
 ```
-
+select * from orders where status in('new','in_progress','delivery') order by sum desc limit 3;
 ```
 2) Выберите из таблицы orders 2 самых дорогих заказов за всё время.
 Данные нужно отсортировать в порядке убывания цены.
 Отмененные заказы не учитывайте.
-![](/LabW2/2.png)
+![](/LabW2/161/2.png)
 ```
-
+select * from orders where status in('new','in_progress','delivery') order by sum desc limit 2;
 ```
 ### Задание №166
 3) Добавьте в таблицу orders данные о новом заказе стоимостью 8000 рублей. В заказе 4 товара (products).
