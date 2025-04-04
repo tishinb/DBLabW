@@ -187,7 +187,19 @@ VALUES (3, "user3@domain.com", "2014-12-13", "2017-04-04 05:12:07")
 То же самое, но разделяется точкой с запятой
 
 ```
+CREATE TABLE users(
+id INT UNSIGNED,
+email VARCHAR(100),
+date_joined DATE,
+last_activity DATETIME
+);
 
+INSERT INTO users (id, email, date_joined, last_activity)
+VALUES (1, "user1@domain.com", "2014-12-12", "2016-04-08 12:34:54");
+INSERT INTO users (id, email, date_joined, last_activity)
+VALUES (2, "user2@domain.com", "2014-12-12", "2017-02-13 11:46:53");
+INSERT INTO users (id, email, date_joined, last_activity)
+VALUES (3, "user3@domain.com", "2014-12-13", "2017-04-04 05:12:07");
 ```
 
 #### Правильное решение 2 (Красивее):
@@ -208,7 +220,11 @@ values
 
 #### Вывод ошибки:
 
+![](/LabW4/ErrorMessages/1.png)
+
 #### Причина ошибки:
+
+Ошибка синтаксиса, требуется как минимум разделение с помощью точкой с запятой
 
 ### Задание №2
 
