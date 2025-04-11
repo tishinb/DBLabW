@@ -10,7 +10,7 @@
 
 ![](/LabW1/1.png)
 
-```
+``` sql
 SELECT * FROM orders;
 ```
 
@@ -20,7 +20,7 @@ SELECT * FROM orders;
 
 ![](/LabW1/2.png)
 
-```
+``` sql
 SELECT * FROM orders WHERE status IN ('cancelled','in_progress','delivery')
 ```
 
@@ -30,7 +30,7 @@ SELECT * FROM orders WHERE status IN ('cancelled','in_progress','delivery')
 
 ![](/LabW1/3.png)
 
-```
+``` sql
 SELECT * FROM orders WHERE status = 'new' OR status = 'cancelled'
 ```
 
@@ -41,7 +41,7 @@ SELECT * FROM orders WHERE status = 'new' OR status = 'cancelled'
 
 ![](/LabW1/4.png)
 
-```
+``` sql
 SELECT id,sum FROM orders WHERE products_count > 3
 ```
 
@@ -59,7 +59,7 @@ SELECT id,sum FROM orders WHERE products_count > 3
 
 ![](/LabW2/161/1.png)
 
-```
+``` sql
 select * from orders where status in('new','in_progress','delivery') order by sum desc limit 3;
 ```
 
@@ -69,7 +69,7 @@ select * from orders where status in('new','in_progress','delivery') order by su
 
 ![](/LabW2/161/2.png)
 
-```
+``` sql
 select * from orders where status in('new','in_progress','delivery') order by sum desc limit 2;
 ```
 
@@ -83,7 +83,7 @@ select * from orders where status in('new','in_progress','delivery') order by su
 
 ![](/LabW2/166/1.png)
 
-```
+``` sql
 insert into orders (id, products, sum) value (6, 4, 8000);
 ```
 
@@ -101,7 +101,7 @@ insert into orders (id, products, sum) value (6, 4, 8000);
    
 ![](/LabW2/167/1.png)
 
-```
+``` sql
 insert into products (id, name, count, price) value (7, 'VR-очки', 2, 70000);
 ```
 
@@ -119,7 +119,7 @@ insert into products (id, name, count, price) value (7, 'VR-очки', 2, 70000)
 
 ![](/LabW2/172/1.png)
 
-```
+``` sql
 update products set name='PS5' where id=7;
 ```
 
@@ -134,7 +134,7 @@ update products set name='PS5' where id=7;
 
 ![](/LabW3/1.png)
 
-```
+``` sql
 CREATE TABLE users (
     id INT,
     first_name VARCHAR(50),
@@ -167,7 +167,7 @@ last_activity – дата и время последней активности
 
 #### Неверное решение:
 
-```
+``` sql
 CREATE TABLE users(
 id INT UNSIGNED,
 email VARCHAR(100),
@@ -186,7 +186,7 @@ VALUES (3, "user3@domain.com", "2014-12-13", "2017-04-04 05:12:07")
 
 То же самое, но разделяется точкой с запятой
 
-```
+``` sql
 CREATE TABLE users(
 id INT UNSIGNED,
 email VARCHAR(100),
@@ -204,7 +204,7 @@ VALUES (3, "user3@domain.com", "2014-12-13", "2017-04-04 05:12:07");
 
 #### Правильное решение 2 (Красивее):
 
-```
+``` sql
 create table users (
 id int(10) unsigned,
 email varchar (100),
@@ -251,7 +251,7 @@ visit_date – дата и время визита (точность до сек
 
 #### Неверное решение:
 
-```
+``` sql
 Create table calendar (
 id int unsigned,
 user_id int unsigned,
@@ -267,7 +267,7 @@ Values (1, 1914 , 1, '2017-04-08 12:00:00'),
 
 #### Правильное решение:
 
-```
+``` sql
 Create table calendar (
 id int unsigned,
 user_id int unsigned,
@@ -307,7 +307,7 @@ bio — биография, текст до 65000 символов.
 
 #### Неверное решение:
 
-```
+``` sql
 create table users (
 id int (10) unsigned,
 first_name varchar (50) unsigned,
@@ -323,7 +323,7 @@ VALUES
 
 #### Правильное решение:
 
-```
+``` sql
 create table users (
 id int (10) unsigned,
 first_name varchar (50),
@@ -355,11 +355,19 @@ VALUES
 
 ![](/LabW5/0_1.jpg)
 
+``` sql
+select * from orders where status != "cancelled" order by sum desc limit 4
+```
+
 ### Задание №2
 
 Выберите из таблицы products название и цены четырех самых дешевых товаров, которые есть на складе.
 
 ![](/LabW5/0_2.jpg)
+
+``` sql
+select name, price from products where count != 0 order by price limit 4
+```
 
 ### Задание №3
 
@@ -368,12 +376,49 @@ VALUES
 
 ![](/LabW5/0_3.jpg)
 
+``` sql
+select * from orders where sum >= 3200 order by date desc limit 3
+```
+
 ### Задание №4
 
 Создайте данную таблицу:
 
 ![](/LabW5/0_4.jpg)
 
+``` sql
+DROP TABLE IF EXISTS products;
+CREATE TABLE products (
+    id INT UNSIGNED NOT NULL,
+    name VARCHAR(255) NULL,
+    count INTEGER NULL,
+    price INTEGER NULL
+);
+INSERT INTO products (id, name, count, price)
+VALUES
+    (1, 'Стиральная машина', 5, 10000),
+    (2, 'Холодильник', 0, 10000),
+    (3, 'Микроволновка', 3, 4000),
+    (4, 'Пылесос', 2, 4500),
+    (5, 'Вентилятор', 0, 700),
+    (6, 'Телевизор', 7, 31740),
+    (7, 'Тостер', 2, 2500),
+    (8, 'Принтер', 4, 3000),
+    (9, 'Активные колонки', 1, 2900),
+    (10, 'Ноутбук', 4, 36990),
+    (11, 'Посудомоечная машина', 0, 17800),
+    (12, 'Видеорегистратор', 23, 4000),
+    (13, 'Смартфон', 8, 12300),
+    (14, 'Флешка', 4, 1400),
+    (15, 'Блендер', 0, 5500),
+    (16, 'Газовая плита', 5, 11900),
+    (17, 'Клавиатура', 3, 1800);
+```
+
 ### Задание №5
 
 Из этой таблицы сделать выборку на основе задания: Сайт выводит товары по 5 штук. Выберите из таблицы products товары, которые пользователи увидят на 3 странице каталога при сортировке в порядке возрастания цены (price).
+
+``` sql
+select * from products order by price limit 10,5
+```
