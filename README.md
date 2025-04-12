@@ -446,8 +446,26 @@ state — статус заказа. Выбор из new, cancelled, in_progress
 
 ![](/LabW6/0_1.jpg)
 
-``` sql
+#### Создание таблицы:
 
+``` sql
+CREATE TABLE orders (
+	id INT UNSIGNED,
+	user_id INT UNSIGNED NOT NULL,
+	amount SMALLINT NOT NULL DEFAULT 0,
+	created DATETIME NOT NULL,
+	state ENUM ('new', 'cancelled', 'in_progress', 'delivered', 'completed') DEFAULT 'new'
+);
+```
+
+#### Создание записей:
+
+``` sql
+INSERT INTO orders (id, user_id, amount, created, state)
+VALUES
+	(1, 56, 5400, '2018-02-01 17:46:59', DEFAULT),
+	(2, 90, 249, '2018-02-01 19:13:04', DEFAULT),
+	(3, 78, 2200, '2018-02-01 22:43:09', DEFAULT);
 ```
 
 ### Задание №2
@@ -470,8 +488,27 @@ is_superuser — отметка администратора. Логическо
 
 ![](/LabW6/0_2.jpg)
 
-``` sql
+#### Создание таблицы:
 
+``` sql
+CREATE TABLE users (
+	id INT UNSIGNED,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(20) NOT NULL,
+	patronymic VARCHAR(20) NOT NULL DEFAULT '',
+	is_active BOOL DEFAULT TRUE,
+	is_superuser BOOL DEFAULT FALSE
+);
+```
+
+#### Создание записей:
+
+``` sql
+INSERT INTO users (id, first_name, last_name, patronymic, is_active, is_superuser)
+VALUES
+	(1, 'Дмитрий', 'Иванов', DEFAULT, TRUE, FALSE),
+	(2, 'Анатолий', 'Белый', DEFAULT, TRUE, TRUE),
+	(3, 'Андрей', 'Крючков', DEFAULT, FALSE, FALSE);
 ```
 
 ### Задание №3
@@ -492,6 +529,24 @@ price — цена типа DECIMAL с 10 знаками, 2 из которых 
 
 ![](/LabW6/0_3.jpg)
 
-``` sql
+#### Создание таблицы:
 
+``` sql
+CREATE TABLE products (
+	id INT UNSIGNED,
+	category_id INT UNSIGNED DEFAULT NULL,
+	name VARCHAR(100) NOT NULL,
+	count TINYINT UNSIGNED DEFAULT 0,
+	price DECIMAL(10,2) NOT NULL DEFAULT 0.00
+);
+```
+
+#### Создание записей:
+
+``` sql
+INSERT INTO products (id, category_id, name, count, price)
+VALUES
+	(1, 1, 'Кружка', 5, 45.90),
+	(2, 17, 'Фломастеры', DEFAULT, 78.00),
+	(3, DEFAULT, 'Сникерс', 12, 50.80);
 ```
