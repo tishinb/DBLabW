@@ -506,9 +506,9 @@ CREATE TABLE users (
 ``` sql
 INSERT INTO users (id, first_name, last_name, patronymic, is_active, is_superuser)
 VALUES
-	(1, 'Дмитрий', 'Иванов', DEFAULT, TRUE, FALSE),
-	(2, 'Анатолий', 'Белый', DEFAULT, TRUE, TRUE),
-	(3, 'Андрей', 'Крючков', DEFAULT, FALSE, FALSE);
+	(1, 'Дмитрий', 'Иванов', DEFAULT, DEFAULT, DEFAULT),
+	(2, 'Анатолий', 'Белый', DEFAULT, DEFAULT, TRUE),
+	(3, 'Андрей', 'Крючков', DEFAULT, FALSE, DEFAULT);
 ```
 
 ### Задание №3
