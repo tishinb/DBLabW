@@ -450,9 +450,9 @@ state — статус заказа. Выбор из new, cancelled, in_progress
 
 ``` sql
 CREATE TABLE orders (
-	id INT UNSIGNED,
+	id INT UNSIGNED NOT NULL,
 	user_id INT UNSIGNED NOT NULL,
-	amount SMALLINT NOT NULL DEFAULT 0,
+	amount MEDIUMINT(8) NOT NULL DEFAULT 0,
 	created DATETIME NOT NULL,
 	state ENUM ('new', 'cancelled', 'in_progress', 'delivered', 'completed') DEFAULT 'new'
 );
@@ -492,7 +492,7 @@ is_superuser — отметка администратора. Логическо
 
 ``` sql
 CREATE TABLE users (
-	id INT UNSIGNED,
+	id INT UNSIGNED NOT NULL,
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
 	patronymic VARCHAR(20) NOT NULL DEFAULT '',
@@ -533,10 +533,10 @@ price — цена типа DECIMAL с 10 знаками, 2 из которых 
 
 ``` sql
 CREATE TABLE products (
-	id INT UNSIGNED,
+	id INT UNSIGNED NOT NULL,
 	category_id INT UNSIGNED DEFAULT NULL,
 	name VARCHAR(100) NOT NULL,
-	count TINYINT UNSIGNED DEFAULT 0,
+	count TINYINT UNSIGNED NOT NULL DEFAULT 0,
 	price DECIMAL(10,2) NOT NULL DEFAULT 0.00
 );
 ```
